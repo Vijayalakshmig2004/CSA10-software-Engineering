@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vijayalakshmi - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Sidebar styles */
+    aside {
+      background: linear-gradient(to bottom, #7c3aed, #db2777);
+    }
+    aside nav a {
+      color: white;
+      display: block;
+      padding: 12px 0;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    aside nav a:hover {
+      color: #facc15;
+    }
+    aside nav a.active {
+      color: #facc15;
+      font-weight: 700;
+      position: relative;
+    }
+    aside nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background-color: #facc15;
+      border-radius: 1px;
+    }
+
+    /* Typed text cursor */
+    .typed-cursor {
+      display: inline-block;
+      border-right: 2px solid #facc15;
+      animation: blink 0.7s infinite;
+      margin-left: 2px;
+    }
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #facc15; }
+    }
+
+    /* Fade slide animation */
+    .fade-slide {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-slide.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      aside {
+        display: none;
+      }
+      header.mobile-nav {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Sidebar -->
+  <aside class="fixed top-0 left-0 h-full w-64 p-6 flex flex-col justify-between hidden md:flex">
+    <div>
+      <h1 class="text-3xl font-bold mb-12 tracking-wide text-white">Vijayalakshmi</h1>
+      <nav id="sidebar-nav" class="space-y-6 text-lg">
+        <a href="home.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <footer class="text-sm opacity-70 text-white">&copy; 2025 All rights reserved</footer>
+  </aside>
+
+  <!-- Mobile Nav -->
+  <header class="mobile-nav fixed top-0 left-0 w-full bg-gradient-to-r from-purple-700 to-pink-500 text-white p-4 z-50 flex justify-between items-center md:hidden">
+    <h1 class="font-bold text-xl tracking-wide">Vijayalakshmi</h1>
+    <nav class="space-x-4">
+      <a href="home.html" class="text-yellow-300 font-semibold">Home</a>
+      <a href="about.html" class="hover:text-yellow-300 transition">About</a>
+      <a href="resume.html" class="hover:text-yellow-300 transition">Resume</a>
+      <a href="portfolio.html" class="hover:text-yellow-300 transition">Portfolio</a>
+      <a href="contact.html" class="hover:text-yellow-300 transition">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="md:ml-64 pt-20 md:pt-0 max-w-5xl mx-auto px-6">
+
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-r from-pink-200 to-purple-200 rounded-lg p-8 fade-slide"
+      style="background-image: url('profile.jpg'); background-size: cover; background-position: center; position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(236,72,153,0.7), rgba(124,58,237,0.7)); z-index: 0;"></div>
+      <h2 class="text-5xl font-extrabold text-white mb-6 relative z-10">
+        Hi, I'm <span id="typed-text" class="relative z-10"></span><span class="typed-cursor relative z-10">|</span>
+      </h2>
+      <p class="text-xl max-w-xl text-white mb-8 relative z-10 font-semibold">IT Undergraduate | Web & Mobile App Developer</p>
+      <a href="about.html" class="relative z-10 bg-purple-700 hover:bg-purple-900 text-white px-8 py-3 rounded-full shadow-lg transition font-semibold">
+        Know More
+      </a>
+    </section>
+
+  </main>
+
+  <script>
+    // Typed text effect
+    const typedText = document.getElementById('typed-text');
+    const phrases = ["Vijayalakshmi G", "Web Developer", "Mobile App Developer", "Tech Enthusiast"];
+    let charIndex = 0;
+    let phraseIndex = 0;
+    let typing = true;
+
+    function type() {
+      if (typing) {
+        if (charIndex < phrases[phraseIndex].length) {
+          typedText.textContent += phrases[phraseIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, 100);
+        } else {
+          typing = false;
+          setTimeout(type, 1500);
+        }
+      } else {
+        if (charIndex > 0) {
+          typedText.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(type, 50);
+        } else {
+          typing = true;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(type, 300);
+        }
+      }
+    }
+    type();
+
+    // Scroll animation for fade-slide
+    const faders = document.querySelectorAll('.fade-slide');
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>

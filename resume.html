@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vijayalakshmi - Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    aside {
+      background: linear-gradient(to bottom, #7c3aed, #db2777);
+    }
+    aside nav a {
+      color: white;
+      display: block;
+      padding: 12px 0;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    aside nav a:hover {
+      color: #facc15;
+    }
+    aside nav a.active {
+      color: #facc15;
+      font-weight: 700;
+      position: relative;
+    }
+    aside nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background-color: #facc15;
+      border-radius: 1px;
+    }
+    .animate-advanced-fade {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+      filter: drop-shadow(0 0 0 transparent);
+      transition: transform 0.3s ease;
+    }
+    .animate-advanced-fade.active {
+      animation-name: advancedFadeIn;
+      animation-duration: 0.8s;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @keyframes advancedFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        filter: drop-shadow(0 0 0 transparent);
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.05);
+        filter: drop-shadow(0 10px 10px rgba(124, 58, 237, 0.4));
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 10px 15px rgba(124, 58, 237, 0.5));
+      }
+    }
+    @media (max-width: 768px) {
+      aside {
+        display: none;
+      }
+      header.mobile-nav {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Sidebar -->
+  <aside class="fixed top-0 left-0 h-full w-64 p-6 flex flex-col justify-between hidden md:flex">
+    <div>
+      <h1 class="text-3xl font-bold mb-12 tracking-wide text-white">Vijayalakshmi</h1>
+      <nav id="sidebar-nav" class="space-y-6 text-lg">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="resume.html" class="active">Resume</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <footer class="text-sm opacity-70 text-white">&copy; 2025 All rights reserved</footer>
+  </aside>
+
+  <!-- Mobile Nav -->
+  <header class="mobile-nav fixed top-0 left-0 w-full bg-gradient-to-r from-purple-700 to-pink-500 text-white p-4 z-50 flex justify-between items-center md:hidden">
+    <h1 class="font-bold text-xl tracking-wide">Vijayalakshmi</h1>
+    <nav class="space-x-4">
+      <a href="home.html" class="hover:text-yellow-300 transition">Home</a>
+      <a href="about.html" class="hover:text-yellow-300 transition">About</a>
+      <a href="resume.html" class="hover:text-yellow-300 transition text-yellow-300 font-semibold">Resume</a>
+      <a href="portfolio.html" class="hover:text-yellow-300 transition">Portfolio</a>
+      <a href="contact.html" class="hover:text-yellow-300 transition">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="md:ml-64 pt-20 md:pt-0 max-w-5xl mx-auto px-6 mb-16">
+
+    <section id="resume">
+      <h2 class="text-4xl font-bold text-purple-700 mb-12 text-center">Resume</h2>
+      
+      <div class="space-y-12">
+
+        <!-- Personal Info -->
+        <div class="rounded-lg shadow-lg p-8 animate-advanced-fade" style="background-color:#e0f2fe;">
+          <h3 class="text-2xl font-semibold mb-6" style="color:#0369a1;">Personal Information</h3>
+          <p class="text-lg font-semibold" style="color:#075985;">Vijayalakshmi G</p>
+          <p class="mb-4" style="color:#0c4a6e;">IT Undergraduate | Developer</p>
+          <p class="mb-1" style="color:#0c4a6e;">📍 Chennai, Tamil Nadu (IN)</p>
+          <p class="mb-1" style="color:#0c4a6e;">✉ <a href="mailto:vijayalakshmicg2004@gmail.com" class="hover:underline text-sky-700">vijayalakshmicg2004@gmail.com</a></p>
+          <p class="mb-1" style="color:#0c4a6e;">📱 9962953715</p>
+          <p class="mb-1" style="color:#0c4a6e;"> <a href="https://github.com/Vijayalakshmig2004" target="_blank" class="hover:underline text-sky-700">Vijayalakshmig2004</a></p>
+          <p style="color:#0c4a6e;"> <a href="https://linkedin.com/in/vijayalakshmi-g-b55219373" target="_blank" class="hover:underline text-sky-700">vijayalakshmi-g-b55219373</a></p>
+          <p class="mt-4 font-medium" style="color:#334155;">
+            Enthusiastic IT undergraduate skilled in Web and Mobile App Development, secure system design, and innovative problem-solving.
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div class="rounded-lg shadow-lg p-8 animate-advanced-fade" style="background-color:#fef3c7;">
+          <h3 class="text-2xl font-semibold mb-6" style="color:#a16207;">Education</h3>
+          <ul class="list-disc list-inside space-y-2 text-lg" style="color:#854d0e;">
+            <li>B.Tech Information Technology, Saveetha School Of Engineering, Saveetha University (2023 - 2027)</li>
+            <li>Diploma in Web Development</li>
+            <li>Certified Java Programmer</li>
+          </ul>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="rounded-lg shadow-lg p-8 animate-advanced-fade" style="background-color:#ede9fe;">
+          <h3 class="text-2xl font-semibold mb-6" style="color:#6d28d9;">Work Experience</h3>
+          <ul class="space-y-4 text-lg" style="color:#5b21b6;">
+            <li>
+              <strong>Frontend Developer</strong> (Jun 2024 - Jul 2024)<br />
+              Developed a secure chat system with end-to-end encryption and real-time features.<br />
+              Implemented WebSocket communication and integrated AES-based encryption.
+            </li>
+            <li>
+              <strong>Python Developer</strong> (Jan 2025 - Mar 2025)<br />
+              Built an inventory system with demand prediction using Machine Learning and Tkinter UI.<br />
+              Used Random Forest for forecasting and Tkinter-based GUI.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Skills -->
+        <div class="rounded-lg shadow-lg p-8 animate-advanced-fade" style="background-color:#dcfce7;">
+          <h3 class="text-2xl font-semibold mb-6" style="color:#166534;">Skills</h3>
+          <ul class="list-disc list-inside space-y-2 text-lg" style="color:#14532d;">
+            <li>Programming Languages: Python, C, C++, Java (Intermediate)</li>
+            <li>Web Development: HTML, CSS, JavaScript, Tailwind CSS (Intermediate)</li>
+            <li>Mobile App Development: React Native, Flutter</li>
+            <li>Databases: MySQL, MongoDB (Intermediate)</li>
+            <li>Version Control: Git & GitHub</li>
+          </ul>
+        </div>
+
+        <!-- Technologies & Interests -->
+        <div class="rounded-lg shadow-lg p-8 animate-advanced-fade" style="background-color:#fee2e2;">
+          <h3 class="text-2xl font-semibold mb-6" style="color:#b91c1c;">Technologies & Interests</h3>
+          <p class="text-lg mb-4" style="color:#991b1b;">Cybersecurity, Open Source, App Development</p>
+          <p class="text-lg" style="color:#991b1b;">Academic Competitions: Olympiads, Hackathons</p>
+        </div>
+
+        <!-- Languages -->
+        <div class="rounded-lg shadow-lg p-8 animate-advanced-fade" style="background-color:#e0e7ff;">
+          <h3 class="text-2xl font-semibold mb-6" style="color:#3730a3;">Languages</h3>
+          <ul class="list-disc list-inside space-y-2 text-lg" style="color:#312e81;">
+            <li>English — Professional working proficiency</li>
+            <li>Tamil — Native speaker</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Animate advanced fade on scroll using Intersection Observer
+    const boxes = document.querySelectorAll(".animate-advanced-fade");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
+        }
+      });
+    }, {
+      threshold: 0.3,
+    });
+
+    boxes.forEach((box, index) => {
+      box.style.animationDelay = `${index * 0.2}s`;
+      observer.observe(box);
+    });
+  </script>
+</body>
+</html>
